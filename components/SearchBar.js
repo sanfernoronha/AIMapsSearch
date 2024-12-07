@@ -7,7 +7,7 @@ import { SearchContext } from '../context/searchContext'
 function SearchBar() {
   const {userLocation,setUserLocation}=useContext(UserLocationContext)
   const {businessList,setBusinessList}=useContext(BusinessListContext)
-  const {searchWithAI, setSearchWithAI} = useContext(SearchContext)
+
  
   const searchPlace=(searchText)=>{
       GlobalApi.searchPlace(searchText,userLocation.lat,userLocation.lng)
