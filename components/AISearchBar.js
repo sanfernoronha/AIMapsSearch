@@ -1,18 +1,17 @@
 import React, { useContext, useState } from 'react'
-import GlobalApi from '../services/GlobalApi'
 import { UserLocationContext } from '../context/UserLocationContext'
 import { BusinessListContext } from '../context/BusinessListContext'
 import { SearchingContext } from '../context/SearchingContext'
 import axios from 'axios'
 
 function AISearchBar() {
-  const {userLocation,setUserLocation}=useContext(UserLocationContext)
-  const {businessList,setBusinessList}=useContext(BusinessListContext)
-  const {searchWithAI, setSearchWithAI} = useContext(SearchingContext)
+  const {userLocation} = useContext(UserLocationContext)
+  const {setBusinessList} = useContext(BusinessListContext)
+  const {setSearchWithAI} = useContext(SearchingContext)
   const [isLoading, setIsLoading] = useState(false)
   const [searchText, setSearchText] = useState('')
  
-  const searchPlace= async (text)=>{
+  const searchPlace = async (text) => {
     setSearchText(text)
     setIsLoading(true)
     try {
@@ -72,7 +71,7 @@ function AISearchBar() {
           {isLoading && (
             <div className="absolute inset-0 flex items-center">
               <div className="text-[17px] text-purple-600 animate-pulse">
-                Searching for "{searchText}"
+                Searching for &quot;{searchText}&quot;
                 <span className="inline-block animate-bounce">.</span>
                 <span className="inline-block animate-bounce delay-100">.</span>
                 <span className="inline-block animate-bounce delay-200">.</span>
