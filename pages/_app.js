@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import '../styles/globals.css'
 import { UserLocationContext } from '../context/UserLocationContext'
+import { Analytics } from '@vercel/analytics/next';
+
 
 function MyApp({ Component, pageProps }) {
   const [userLocation,setUserLocation]=useState([])
@@ -19,6 +21,7 @@ function MyApp({ Component, pageProps }) {
   return (
   <UserLocationContext.Provider value={{userLocation,setUserLocation}}>
     <Component {...pageProps} />
+    <Analytics/>
   </UserLocationContext.Provider>
   )
 }
