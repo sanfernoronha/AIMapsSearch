@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import '../styles/globals.css'
 import { UserLocationContext } from '../context/UserLocationContext'
-import { Analytics } from '@vercel/analytics/next';
+import { Analytics } from '@vercel/analytics/react';
 
 
 function MyApp({ Component, pageProps }) {
@@ -19,10 +19,15 @@ function MyApp({ Component, pageProps }) {
     })
   }
   return (
-  <UserLocationContext.Provider value={{userLocation,setUserLocation}}>
-    <Component {...pageProps} />
-    <Analytics/>
-  </UserLocationContext.Provider>
+    <>
+    <UserLocationContext.Provider value={{userLocation,setUserLocation}}>
+      <Component {...pageProps} />
+    </UserLocationContext.Provider>
+    <Analytics beforeSend={(e) => {
+      if (e.url.includes('private')) return null;
+      return e;
+    }}/>
+    </>
   )
 }
 
