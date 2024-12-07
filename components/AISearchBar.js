@@ -8,7 +8,6 @@ import axios from 'axios'
 function AISearchBar() {
   const {userLocation,setUserLocation}=useContext(UserLocationContext)
   const {businessList,setBusinessList}=useContext(BusinessListContext)
-  const {searchWithAI, setSearchWithAI} = useContext(SearchContext)
  
   const searchPlace= async (searchText)=>{
     //   GlobalApi.searchPlace(searchText,userLocation.lat,userLocation.lng)
