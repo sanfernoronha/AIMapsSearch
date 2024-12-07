@@ -2,12 +2,12 @@ import React, { useContext, useEffect, useState } from "react";
 import BusinessItem from "./BusinessItem";
 import ShimmerEffectItem from "./ShimmerEffectItem";
 import { SelectedBusinessContext } from "../context/SelectedBusinessContext";
-import { SearchContext } from "../context/searchContext";
+import { SearchingContext } from "../context/SearchingContext";
 
 function BusinessList({businessListData}) {
     const [count,setCount]=useState(0);
     const [loader,setLoader]=useState(true);
-    const {searchWithAI, setSearchWithAI} = useContext(SearchContext)
+    const {searchWithAI, setSearchWithAI} = useContext(SearchingContext)
     const {selectedBusiness,setSelectedBusiness}=useContext(SelectedBusinessContext)
     const [filteredCategory, setFilteredCategory] = useState('');
     const [filteredPrice, setFilteredPrice] = useState('');

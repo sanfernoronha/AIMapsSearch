@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import GlobalApi from '../services/GlobalApi'
 import { UserLocationContext } from '../context/UserLocationContext'
 import { BusinessListContext } from '../context/BusinessListContext'
-import { SearchContext } from '../context/searchContext'
+import { SearchingContext } from '../context/SearchingContext'
 import axios from 'axios'
 
 function AISearchBar() {

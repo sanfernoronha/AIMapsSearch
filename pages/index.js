@@ -14,7 +14,7 @@ import { BusinessListContext } from "../context/BusinessListContext";
 
 import { SelectedBusinessContext } from "../context/SelectedBusinessContext";
 import BusinessToast from "../components/BusinessToast";
-import { SearchContext } from "../context/searchContext";
+import { SearchingContext } from "../context/SearchingContext";
 
 export default function Home() {
   const [businessList,setBusinessList]=useState([]);
@@ -43,7 +43,7 @@ export default function Home() {
     <div className="flex">
       <SelectedBusinessContext.Provider value={{selectedBusiness,setSelectedBusiness}}>
       <BusinessListContext.Provider value={{businessList,setBusinessList}}>
-      <SearchContext.Provider value={{searchWithAI, setSearchWithAI}}>
+      <SearchingContext.Provider value={{searchWithAI, setSearchWithAI}}>
       <SideNavBar />
       <div className="grid grid-cols-1
       md:grid-cols-2 px-6 md:px-10 w-full mt-10 gap-8">
@@ -67,7 +67,7 @@ export default function Home() {
           <BusinessToast userLocation={userLocation} />
         </div>
       </div>
-      </SearchContext.Provider>
+      </SearchingContext.Provider>
       </BusinessListContext.Provider>
       </SelectedBusinessContext.Provider>
     </div>
