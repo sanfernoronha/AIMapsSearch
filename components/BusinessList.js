@@ -132,31 +132,30 @@ function BusinessList({businessListData}) {
             )}
 
       {/* Business Item  */}
-   {!loader && !searchWithAI?  <div>
-        {businessListData.map((business,index)=>
-        index>=count&&index<count+3&&(
-          <div key={index} className={`cursor-pointer rounded-2xl
-          ${selectedBusiness.name==business.name?'bg-purple-50':null}`}
-          onClick={()=>setSelectedBusiness(business)}>
-            <BusinessItem business={business} />
-          </div>
-        ))}
-      
-      </div>:null}
-      {!loader && searchWithAI?  <div>
-        {filteredBusinesses.map((business,index)=>
-        index>=count&&index<count+3&&(
-          <div key={index} className={`cursor-pointer rounded-2xl
-          ${selectedBusiness.name==business.name?'bg-purple-50':null}`}
-          onClick={()=>setSelectedBusiness(business)}>
-            <BusinessItem business={business} />
-          </div>
-        ))}
-      
-      </div>:null}
-     {loader? [1,2,3].map((item,index)=>(
-       <ShimmerEffectItem key={index}/>
-     )):null}
+      {!loader && !searchWithAI ? (
+    <div>
+        {businessListData.map((business,index)=>  // Use original data for non-AI results
+            index>=count&&index<count+3&&(
+                <div key={index} className={`cursor-pointer rounded-2xl
+                ${selectedBusiness.name==business.name?'bg-purple-50':null}`}
+                onClick={()=>setSelectedBusiness(business)}>
+                    <BusinessItem business={business} />
+                </div>
+            ))}
+    </div>
+) : null}
+     {!loader && searchWithAI ? (
+    <div>
+        {filteredBusinesses.map((business,index)=>  // Use filtered data only for AI results
+            index>=count&&index<count+3&&(
+                <div key={index} className={`cursor-pointer rounded-2xl
+                ${selectedBusiness.name==business.name?'bg-purple-50':null}`}
+                onClick={()=>setSelectedBusiness(business)}>
+                    <BusinessItem business={business} />
+                </div>
+            ))}
+    </div>
+) : null}
     
       
     </div>
