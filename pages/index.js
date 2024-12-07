@@ -53,7 +53,7 @@ export default function Home() {
           <SearchBar/>
           <p className="text-center text-[15px] text-gray-500">or</p>
           <AISearchBar/>
-          
+          <p className="text-[15px] dark:text-purple-100 text-purple-400 italic">Try something like- "I want to spend some time somewhere peaceful" or "I want to try bánh mì"</p>
           {/* Category List  */}
           <CategoryList setSelectedCategory={(category)=>
             getNearByPlace(category)} />
