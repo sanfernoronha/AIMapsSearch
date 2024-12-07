@@ -21,23 +21,43 @@ function Marker({ userLocation }) {
                   },
                 }}
               >
-                <InfoBox position={business.geometry.location}>
-                  <div
-                    style={{
-                      backgroundColor: "white",
-                      backgroundColor: "#c084fc",
-                      opacity: 1,
-                      padding: 7,
-                      color: "white",
-                      borderRadius: 10,
-                      width: 100,
+                  <InfoBox
+                    position={business.geometry.location}
+                    options={{
+                    closeBoxURL: "",
+                    enableEventPropagation: true,
+                    pixelOffset: new window.google.maps.Size(-50, 0), // Positive value moves it down
+                    boxStyle: {
+                    overflow: "visible",
+                    position: "absolute",
+                    width: "auto"
+                    }
                     }}
                   >
-                    <div style={{ fontSize: 13, fontColor: `#08233B` }}>
+                    <div
+                      style={{
+                      backgroundColor: "#c084fc",
+                      padding: "8px 12px",
+                      color: "white",
+                      borderRadius: "10px",
+                      minWidth: "120px",
+                      whiteSpace: "nowrap",
+                      textAlign: "center",
+                      boxShadow: "0 2px 6px rgba(0,0,0,0.2)",
+                      position: "relative",
+                      zIndex: 1
+                      }}
+                    >
+                      <div style={{ 
+                      fontSize: "13px",
+                      lineHeight: "1.2",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis"
+                      }}>
                       {business.name}
+                      </div>
                     </div>
-                  </div>
-                </InfoBox>
+                  </InfoBox>
               </MarkerF>
             )
         )}
@@ -50,7 +70,7 @@ function Marker({ userLocation }) {
             height: 50,
           },
         }}
-      ></MarkerF>
+      />
     </div>
   );
 }

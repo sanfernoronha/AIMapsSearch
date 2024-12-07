@@ -43,10 +43,10 @@ function AISearchBar() {
           viewBox="0 0 100 100"
           className='w-6 h-6'
           fill="none"
-          stroke="black"
+          stroke="currentColor"
           strokeWidth="2"
         >
-          <rect x="45" y="30" width="10" height="50" fill="#6c4a25" />
+          <rect x="45" y="30" width="10" height="50" fill="currentColor" />
           <polygon
             points="50,15 53,25 63,25 55,30 58,40 50,33 42,40 45,30 37,25 47,25"
             fill="#ffcc00"
@@ -65,8 +65,8 @@ function AISearchBar() {
             type='text'
             placeholder='AI Search'
             onKeyDown={handleKeyDown}
-            className={`bg-transparent outline-none w-full text-[17px]
-            placeholder-purple-400 ${isLoading ? 'invisible' : ''}`}
+            className={`bg-transparent outline-none w-full text-[17px] 
+            text-gray-800 placeholder-purple-400 ${isLoading ? 'invisible' : ''}`}
           />
           {isLoading && (
             <div className="absolute inset-0 flex items-center">

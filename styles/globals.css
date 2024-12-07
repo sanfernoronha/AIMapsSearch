@@ -1,6 +1,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --transition-duration: 50ms; /* Faster base duration */
+}
+
+/* Faster transitions for background colors */
+html,
+body,
+* {
+  transition: background-color var(--transition-duration) ease;
+}
+
+/* Specific transitions for text and other elements */
+*,
+::before,
+::after {
+  transition: color var(--transition-duration) ease,
+              fill var(--transition-duration) ease,
+              stroke var(--transition-duration) ease,
+              border-color var(--transition-duration) ease;
+}
+
+/* Remove transitions from elements where it might cause jank */
+img,
+video,
+svg {
+  transition: none;
+}
+
+/* Base styles */
 html,
 body {
   padding: 0;
@@ -8,24 +38,36 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
-infoBox{
-  width: 50;
+
+/* Base light/dark mode settings */
+html {
+  color-scheme: light;
 }
+
+html.dark {
+  color-scheme: dark;
+}
+
+/* Default light mode styles */
+body {
+  @apply bg-white text-gray-800;
+}
+
+/* Dark mode styles using Tailwind's dark mode class */
+html.dark body {
+  @apply bg-gray-900 text-white;
+}
+
+.infoBox {
+  width: 50px;
+}
+
 a {
-  color: inherit;
-  text-decoration: none;
+  @apply text-inherit no-underline;
 }
 
 * {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: light) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
-}
+/* Remove the media query since we're using class-based dark mode */
